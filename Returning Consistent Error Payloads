@@ -1,0 +1,50 @@
+openapi: 3.1.0
+info:
+  title: OpenAPI v3.1 Fundamentals API
+  description: A stripped-down version of the Petstore API for the OpenAPI v3.1 Fundamentals course.
+  version: 1.0.0
+paths:
+  /pets:
+    get:
+      responses:
+        "200":
+          summary: List of pets
+          description: List of pets provided at the Petstore
+          content:
+            application/json:
+              schema:
+                type: array
+                maxItems: 100
+                items:
+                  $ref: "#/components/schemas/Pet"
+        default:
+          description: Non-specific HTTP response code
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+components:
+  schemas:
+    Pet:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        tag:
+          type: string
+    Error:
+      type: object
+      required:
+        - code
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
