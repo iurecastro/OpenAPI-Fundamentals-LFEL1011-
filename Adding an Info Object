@@ -1,0 +1,11 @@
+openapi: 3.1.0
+info:
+  title: OpenAPI v3.1 Fundamentals API
+  description: A stripped-down version of the Petstore API for the OpenAPI v3.1 Fundamentals course.
+  version: 1.0.0
+paths:
+  /pets:
+    get:
+      responses:
+        "200":
+          description: OK
